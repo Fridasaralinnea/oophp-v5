@@ -14,10 +14,10 @@ class DiceTest extends TestCase
     /**
      * Set up.
      */
-     protected function setUp()
-     {
-         $this->dice = new Dice();
-     }
+    protected function setUp()
+    {
+        $this->dice = new Dice();
+    }
 
 
     /**

@@ -14,10 +14,10 @@ class DiceHandTest extends TestCase
     /**
      * Set up.
      */
-     protected function setUp()
-     {
-         $this->diceHand = new DiceHand();
-     }
+    protected function setUp()
+    {
+        $this->diceHand = new DiceHand();
+    }
 
     /**
      * Roll diceHand and control values

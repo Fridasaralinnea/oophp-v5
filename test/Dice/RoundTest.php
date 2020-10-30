@@ -14,10 +14,10 @@ class RoundTest extends TestCase
     /**
      * Set up.
      */
-     protected function setUp()
-     {
-         $this->round = new Round();
-     }
+    protected function setUp()
+    {
+        $this->round = new Round();
+    }
 
     /**
      * test set and get current.

@@ -14,10 +14,11 @@ class GameTest extends TestCase
     /**
      * Set up.
      */
-     protected function setUp()
-     {
-         $this->game = new Game();
-     }
+    protected function setUp()
+    {
+        $this->game = new Game();
+    }
+
     /**
      * Test create new Game.
      */
