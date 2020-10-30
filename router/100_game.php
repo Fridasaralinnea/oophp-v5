@@ -1,55 +1,12 @@
 <?php
 /**
- * Create routes using $app programming style.
- */
-//var_dump(array_keys(get_defined_vars()));
-
-
-
-/**
  * Init the game and redirect to play game.
  */
 $app->router->get("game/init", function () use ($app) {
-    // init the session for the gamestart.
-    // $doInit = $_POST["doInit"] ?? null;
-    //
-    // if ($doInit) {
-    //     // Unset all of the session variables.
-    //     $_SESSION = [];
-    //
-    //     // If it's desired to kill the session, also delete the session cookie.
-    //     // Note: This will destroy the session, and not just the session data!
-    //     if (ini_get("session.use_cookies")) {
-    //         $params = session_get_cookie_params();
-    //         setcookie(
-    //             session_name(),
-    //             '',
-    //             time() - 42000,
-    //             $params["path"],
-    //             $params["domain"],
-    //             $params["secure"],
-    //             $params["httponly"]
-    //         );
-    //     }
-    //
-    //     // Finally, destroy the session.
-    //     session_destroy();
-    //     session_name("frls19");
-    //     session_start();
-    // }
-
-    // if (!isset($_SESSION["guess"])) {
-    //     $_SESSION["guess"] = new Fla\Guess\Guess();
-    //     $_SESSION["guess"]->random();
-    // }
-
     $_SESSION["game"] = new Fla\Dice\Game();
-    // $_SESSION["game"]->random();
 
     return $app->response->redirect("game/play");
 });
-
-
 
 /**
  * Play the game . Shoe game status
@@ -58,20 +15,10 @@ $app->router->get("game/play", function () use ($app) {
     $title = "Play the 100-game";
 
     $game = $_SESSION["game"];
-    // $doGuess = $_POST["doGuess"] ?? null;
-    // $doCheat = $_POST["doCheat"] ?? null;
-    // $newGuess = $_POST["newGuess"] ?? null;
-
-    // if ($doGuess) {
-    //     $guess->try();
-    //     $res = $guess->makeGuess($newGuess);
-    // }
     $values = $_SESSION["values"] ?? null;
     $_SESSION["values"] = null;
     $doNotAllowRollOrSave = $_SESSION["doNotAllowRollOrSave"] ?? null;
     $_SESSION["doNotAllowRollOrSave"] = null;
-    // $winner = $_SESSION["winner"] ?? null;
-    // $_SESSION["winner"] = null;
 
     $data = [
         "savePoints" => $savePoints ?? null,
@@ -88,7 +35,7 @@ $app->router->get("game/play", function () use ($app) {
     ];
 
     $app->page->add("game/play", $data);
-    // $app->page->add("guess/debug");
+    // $app->page->add("game/debug");
 
     return $app->page->render([
         "title" => $title,
@@ -97,7 +44,7 @@ $app->router->get("game/play", function () use ($app) {
 
 
 /**
- * Play the game . Make a guess
+ * Play the game .
  */
 $app->router->post("game/play", function () use ($app) {
     $title = "Play the 100-game";
@@ -127,12 +74,10 @@ $app->router->post("game/play", function () use ($app) {
 
     if ($savePoints) {
         $game->savePointsNextPlayer();
-        // $_SESSION["number"] = $number;
     }
 
     if ($nextPlayer) {
         $game->nextPlayer();
-        // $_SESSION["number"] = $number;
     }
 
     return $app->response->redirect("game/play");
