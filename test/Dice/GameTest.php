@@ -9,13 +9,21 @@ use PHPUnit\Framework\TestCase;
  */
 class GameTest extends TestCase
 {
+    protected $game;
+
+    /**
+     * Set up.
+     */
+     protected function setUp()
+     {
+         $this->game = new Game();
+     }
     /**
      * Test create new Game.
      */
     public function testCreateGame()
     {
-        $game = new Game();
-        $this->assertInstanceOf("\Fla\Dice\Game", $game);
+        $this->assertInstanceOf("\Fla\Dice\Game", $this->game);
     }
 
     /**
@@ -23,10 +31,9 @@ class GameTest extends TestCase
      */
     public function testGetPoints()
     {
-        $game = new Game();
         $exp = 0;
-        $res1 = $game->getPoints("player");
-        $res2 = $game->getPoints("computer");
+        $res1 = $this->game->getPoints("player");
+        $res2 = $this->game->getPoints("computer");
 
         $this->assertEquals($exp, $res1);
         $this->assertEquals($exp, $res2);
@@ -37,16 +44,15 @@ class GameTest extends TestCase
      */
     public function testSetPoints()
     {
-        $game = new Game();
         $exp = 10;
         $player = "player";
         $computer = "computer";
 
-        $game->setPoints($player, $exp);
-        $game->setPoints($computer, $exp);
+        $this->game->setPoints($player, $exp);
+        $this->game->setPoints($computer, $exp);
 
-        $res1 = $game->getPoints($player);
-        $res2 = $game->getPoints($computer);
+        $res1 = $this->game->getPoints($player);
+        $res2 = $this->game->getPoints($computer);
 
         $this->assertEquals($exp, $res1);
         $this->assertEquals($exp, $res2);
@@ -57,24 +63,20 @@ class GameTest extends TestCase
      */
     public function testSavePointsNextPlayerForPlayer()
     {
-        $game = new Game();
         $player = "player";
-        // $computer = "computer";
         $sum = 10;
         $exp0 = 0;
 
-        $game->setCurrent($player);
-        $game->setSum($sum);
+        $this->game->setCurrent($player);
+        $this->game->setSum($sum);
 
-        $game->savePointsNextPlayer();
+        $this->game->savePointsNextPlayer();
 
-        $sumAfter = $game->getSum();
-        $pointsAfter = $game->getPoints($player);
-        // $playerAfter = $game->getCurrent();
+        $sumAfter = $this->game->getSum();
+        $pointsAfter = $this->game->getPoints($player);
 
         $this->assertEquals($exp0, $sumAfter);
         $this->assertEquals($sum, $pointsAfter);
-        // $this->assertEquals($computer, $playerAfter);
     }
 
     /**
@@ -82,20 +84,19 @@ class GameTest extends TestCase
      */
     public function testSavePointsNextPlayerForComputer()
     {
-        $game = new Game();
         $player = "player";
         $computer = "computer";
         $sum = 10;
         $exp0 = 0;
 
-        $game->setCurrent($computer);
-        $game->setSum($sum);
+        $this->game->setCurrent($computer);
+        $this->game->setSum($sum);
 
-        $game->savePointsNextPlayer();
+        $this->game->savePointsNextPlayer();
 
-        $sumAfter = $game->getSum();
-        $pointsAfter = $game->getPoints($computer);
-        $playerAfter = $game->getCurrent();
+        $sumAfter = $this->game->getSum();
+        $pointsAfter = $this->game->getPoints($computer);
+        $playerAfter = $this->game->getCurrent();
 
         $this->assertEquals($exp0, $sumAfter);
         $this->assertEquals($sum, $pointsAfter);
@@ -107,21 +108,20 @@ class GameTest extends TestCase
      */
     public function testNextPlayerForComputer()
     {
-        $game = new Game();
         $player = "player";
         $computer = "computer";
         $sum = 10;
         $exp0 = 0;
 
-        $game->setCurrent($computer);
-        $game->setSum($sum);
-        $pointsBefore = $game->getPoints($computer);
+        $this->game->setCurrent($computer);
+        $this->game->setSum($sum);
+        $pointsBefore = $this->game->getPoints($computer);
 
-        $game->NextPlayer();
+        $this->game->NextPlayer();
 
-        $sumAfter = $game->getSum();
-        $pointsAfter = $game->getPoints($computer);
-        $playerAfter = $game->getCurrent();
+        $sumAfter = $this->game->getSum();
+        $pointsAfter = $this->game->getPoints($computer);
+        $playerAfter = $this->game->getCurrent();
 
         $this->assertEquals($exp0, $sumAfter);
         $this->assertEquals($pointsBefore, $pointsAfter);
@@ -133,25 +133,21 @@ class GameTest extends TestCase
      */
     public function testNextPlayerForPlayer()
     {
-        $game = new Game();
         $player = "player";
-        // $computer = "computer";
         $sum = 10;
         $exp0 = 0;
 
-        $game->setCurrent($player);
-        $game->setSum($sum);
-        $pointsBefore = $game->getPoints($player);
+        $this->game->setCurrent($player);
+        $this->game->setSum($sum);
+        $pointsBefore = $this->game->getPoints($player);
 
-        $game->NextPlayer();
+        $this->game->NextPlayer();
 
-        $sumAfter = $game->getSum();
-        $pointsAfter = $game->getPoints($player);
-        // $playerAfter = $game->getCurrent();
+        $sumAfter = $this->game->getSum();
+        $pointsAfter = $this->game->getPoints($player);
 
         $this->assertEquals($exp0, $sumAfter);
         $this->assertEquals($pointsBefore, $pointsAfter);
-        // $this->assertEquals($player, $playerAfter);
     }
 
     /**
@@ -159,8 +155,7 @@ class GameTest extends TestCase
      */
     public function testGetWinner()
     {
-        $game = new Game();
-        $res = $game->getWinner();
+        $res = $this->game->getWinner();
         $exp = null;
 
         $this->assertEquals($exp, $res);
@@ -171,18 +166,17 @@ class GameTest extends TestCase
      */
     public function testWinner()
     {
-        $game = new Game();
         $player = "player";
         $points = 90;
         $sum = 10;
         $exp = $points + $sum;
 
-        $game->setCurrent($player);
-        $game->setSum($sum);
-        $game->setPoints($player, $points);
+        $this->game->setCurrent($player);
+        $this->game->setSum($sum);
+        $this->game->setPoints($player, $points);
 
-        $winnerBool = $game->checkIfWinner();
-        $pointsAfter = $game->getPoints($player);
+        $winnerBool = $this->game->checkIfWinner();
+        $pointsAfter = $this->game->getPoints($player);
 
         $this->assertEquals($exp, $pointsAfter);
         $this->assertTrue($winnerBool);

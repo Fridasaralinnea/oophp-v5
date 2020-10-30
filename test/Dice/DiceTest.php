@@ -9,13 +9,23 @@ use PHPUnit\Framework\TestCase;
  */
 class DiceTest extends TestCase
 {
+    protected $dice;
+
+    /**
+     * Set up.
+     */
+     protected function setUp()
+     {
+         $this->dice = new Dice();
+     }
+
+
     /**
      * Test create new Dice.
      */
     public function testCreateDice()
     {
-        $dice = new Dice();
-        $this->assertInstanceOf("\Fla\Dice\Dice", $dice);
+        $this->assertInstanceOf("\Fla\Dice\Dice", $this->dice);
     }
 
     /**
@@ -23,9 +33,8 @@ class DiceTest extends TestCase
      */
     public function testGetValue()
     {
-        $dice = new Dice();
         $values = [1, 2, 3, 4, 5, 6];
-        $value = $dice->getValue();
+        $value = $this->dice->getValue();
         $myBool = false;
         if (in_array($value, $values)) {
             $myBool = true;

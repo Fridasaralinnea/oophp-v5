@@ -9,14 +9,23 @@ use PHPUnit\Framework\TestCase;
  */
 class DiceHandTest extends TestCase
 {
+    protected $diceHand;
+
+    /**
+     * Set up.
+     */
+     protected function setUp()
+     {
+         $this->diceHand = new DiceHand();
+     }
+
     /**
      * Roll diceHand and control values
      */
     public function testValuesArray()
     {
-        $diceHand = new DiceHand();
-        $diceHand->roll();
-        $valuesArray = $diceHand->values();
+        $this->diceHand->roll();
+        $valuesArray = $this->diceHand->values();
         $this->assertTrue(is_array($valuesArray));
     }
 
@@ -25,11 +34,10 @@ class DiceHandTest extends TestCase
      */
     public function testSum()
     {
-        $diceHand = new DiceHand();
-        $diceHand->roll();
-        $valuesArray = $diceHand->values();
+        $this->diceHand->roll();
+        $valuesArray = $this->diceHand->values();
         $exp = array_sum($valuesArray);
-        $res = $diceHand->sum();
+        $res = $this->diceHand->sum();
 
         $this->assertEquals($exp, $res);
     }

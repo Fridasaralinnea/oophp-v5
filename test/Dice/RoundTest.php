@@ -9,15 +9,24 @@ use PHPUnit\Framework\TestCase;
  */
 class RoundTest extends TestCase
 {
+    protected $round;
+
+    /**
+     * Set up.
+     */
+     protected function setUp()
+     {
+         $this->round = new Round();
+     }
+
     /**
      * test set and get current.
      */
     public function testSetGetCurrent()
     {
-        $round = new Round();
         $test = "test";
-        $round->setCurrent($test);
-        $res = $round->getCurrent();
+        $this->round->setCurrent($test);
+        $res = $this->round->getCurrent();
 
         $this->assertEquals($test, $res);
     }
@@ -27,10 +36,9 @@ class RoundTest extends TestCase
      */
     public function testSetGetSum()
     {
-        $round = new Round();
         $test = 10;
-        $round->setSum($test);
-        $res = $round->getSum();
+        $this->round->setSum($test);
+        $res = $this->round->getSum();
 
         $this->assertEquals($test, $res);
     }
@@ -40,10 +48,9 @@ class RoundTest extends TestCase
      */
     public function testThrowDices()
     {
-        $round = new Round();
-        $sumBefore = $round->getSum();
-        $round->throwDices();
-        $sumAfter = $round->getSum();
+        $sumBefore = $this->round->getSum();
+        $this->round->throwDices();
+        $sumAfter = $this->round->getSum();
 
         $this->assertNotEquals($sumBefore, $sumAfter);
     }
@@ -53,9 +60,8 @@ class RoundTest extends TestCase
      */
     public function testShowDices()
     {
-        $round = new Round();
-        $round->throwDices();
-        $valuesArray = $round->showThrownDices();
+        $this->round->throwDices();
+        $valuesArray = $this->round->showThrownDices();
 
         $this->assertTrue(is_array($valuesArray));
     }
