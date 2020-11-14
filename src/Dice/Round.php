@@ -5,8 +5,10 @@ namespace Fla\Dice;
 /**
  * Game my number, a class supporting the game through GET, POST and SESSION.
  */
-class Round
+class Round implements HistogramInterface
 {
+    use HistogramTrait;
+
     /**
      * @var string $current   The current player.
      * @var int $number   The current secret number.
@@ -58,6 +60,7 @@ class Round
     {
         $this->diceHand = new DiceHand();
         $this->diceHand->roll();
+        $this->addToSerie($this->diceHand->values());
         $this->sum += $this->diceHand->sum();
     }
 

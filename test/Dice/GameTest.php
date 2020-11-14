@@ -35,9 +35,11 @@ class GameTest extends TestCase
         $exp = 0;
         $res1 = $this->game->getPoints("player");
         $res2 = $this->game->getPoints("computer");
+        $res3 = $this->game->getPoints("bla");
 
         $this->assertEquals($exp, $res1);
         $this->assertEquals($exp, $res2);
+        $this->assertEquals(null, $res3);
     }
 
     /**

@@ -8,10 +8,12 @@ class DiceHand
      * @var integer $one    The value of dice one.
      * @var integer $two    The value of dice two.
      * @var integer $three    The value of dice three.
+     * @var object $histogram    Histogram object.
      */
     private $one;
     private $two;
     private $three;
+    // private $histogram;
 
     /**
      * Roll DiceHand.
@@ -21,6 +23,7 @@ class DiceHand
         $this->one = new Dice();
         $this->two = new Dice();
         $this->three = new Dice();
+        // $this->histogram = new Histogram();
     }
 
     /**
@@ -43,12 +46,5 @@ class DiceHand
     {
         $sum = array_sum($this->values());
         return $sum;
-    }
-
-    /**
-     * Destroy a DiceHand.
-     */
-    public function __destruct()
-    {
     }
 }

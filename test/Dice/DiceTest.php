@@ -19,7 +19,6 @@ class DiceTest extends TestCase
         $this->dice = new Dice();
     }
 
-
     /**
      * Test create new Dice.
      */

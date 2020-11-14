@@ -28,13 +28,14 @@ class Game extends Round
      * @param string $winner  Set starting winner null.
      */
 
-    public function __construct(int $pointsPlayer = 0, int $pointsComputer = 0, string $current = "player", int $sum = 0, $winner = null)
+    public function __construct(int $pointsPlayer = 0, int $pointsComputer = 0, string $current = "player", int $sum = 0, $winner = null, $serie = array())
     {
         $this->pointsPlayer = $pointsPlayer;
         $this->pointsComputer = $pointsComputer;
         $this->setSum($sum);
         $this->setCurrent($current);
         $this->winner = $winner;
+        $this->serie = $serie;
     }
 
     /**
@@ -46,9 +47,10 @@ class Game extends Round
     {
         if ($player == "computer") {
             return $this->pointsComputer;
-        }
-        if ($player == "player") {
+        } elseif ($player == "player") {
             return $this->pointsPlayer;
+        } else {
+            return null;
         }
     }
 
@@ -156,8 +158,12 @@ class Game extends Round
      */
     public function computerChoice()
     {
-        $choice = rand(1, 2);
-        if ($choice == 1) {
+        $pointsComputer = $this->getPoints("computer");
+        $pointsPlayer = $this->getPoints("player");
+        $sum = $this->getSum();
+        $totalComputer = $pointsComputer + $sum;
+        // $choice = rand(1, 2);
+        if ($totalComputer < $pointsPlayer) {
             return $this->computerPlay();
         } else {
             return $this->savePointsNextPlayer();

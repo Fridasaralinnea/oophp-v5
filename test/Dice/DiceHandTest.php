@@ -20,6 +20,14 @@ class DiceHandTest extends TestCase
     }
 
     /**
+     * Test create new DiceHand.
+     */
+    public function testCreateDice()
+    {
+        $this->assertInstanceOf("\Fla\Dice\DiceHand", $this->diceHand);
+    }
+
+    /**
      * Roll diceHand and control values
      */
     public function testValuesArray()

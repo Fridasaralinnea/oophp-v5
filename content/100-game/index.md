@@ -2,7 +2,7 @@ Först till 100
 ====================
 
 Välkommern till spelet först till 100.  
-[Starta ett nytt spel](game/init)
+[Starta ett nytt spel](dice/init)
 
 Spelregler
 -------------
