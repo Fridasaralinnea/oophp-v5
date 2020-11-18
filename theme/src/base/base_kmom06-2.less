@@ -1,0 +1,36 @@
+/**
+ * Base style to affect HTML elements on a general scale. Kmom03
+ */
+@bgColorHtml: #eee;
+@bgColorBody: #fff;
+@textColorBody: #333;
+@bgImage: url("../../htdocs/img/deer-big.jpg");
+
+html {
+    overflow-y: scroll;
+    background-color: @bgColorHtml;
+}
+
+body {
+    color: @textColorBody;
+    background-color: @bgColorBody;
+    #desinax-hgrid.font(@fontSizeBody); // Activate the grid base font
+}
+
+img {
+    max-width: 100%;
+}
+
+.wrap-all {
+    background-image: @bgImage;
+    background-color: @bgColorBody;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: top;
+    // background-size: contain;
+}
+
+
+
+// Activate grid and affect all typographic elements
+#desinax-hgrid.activateDefaultTypography();

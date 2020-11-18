@@ -1,0 +1,37 @@
+/**
+ * Base style to affect HTML elements on a general scale.
+ */
+@bgColorHtml: blue; //#424242;
+@bgColorBody: #fff;
+@colorBody: #333;
+@fontFamilyBody: sans-serif;
+@widthBody: 1000px;
+
+html {
+    overflow-y: scroll;
+    background-color: @bgColorHtml;
+}
+
+body {
+    overflow: auto;
+    margin: auto;
+    color: @colorBody;
+    background-color: @bgColorBody;
+    font-family: @fontFamilyBody;
+}
+
+img {
+    max-width: 100%;
+}
+
+.inner-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 5px;
+    align-items: center;
+}
+
+.wrap-all {
+    background-color: #fff;
+}

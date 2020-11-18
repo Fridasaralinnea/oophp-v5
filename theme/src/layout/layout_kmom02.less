@@ -1,0 +1,96 @@
+/**
+ * Layout style for general structure of header, navbar, main, footer
+ * and other regions of the page including route specific styles.
+ */
+
+/**
+ * Variables
+ */
+
+
+/**
+ * General layout
+ */
+
+
+
+// style header
+
+.inner-wrap-header {
+    max-width: 100%;
+    background-color: #555;
+    color: #66bca4;
+    overflow: hidden;
+}
+
+.region-header-col-1 {
+    width: 20%;
+    float: left;
+}
+
+.region-header-col-2 {
+    width: 60%;
+    float: left;
+    font-size: 23px;
+    text-align: center;
+}
+
+.region-header-col-3 {
+    width: 20%;
+    float: left;
+}
+
+.site-logo-text a {
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.site-logo-text img {
+    margin-top: 8px;
+}
+
+.rm-small {
+    font-size: 30px;
+}
+
+// style footer
+
+.outer-wrap-footer {
+    background-color: #555;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    color: #66bca4;
+}
+
+.inner-wrap-footer {
+    max-width: 80%;
+}
+
+.site-footer {
+    text-align: center;
+}
+
+//style sidebars
+
+.region-main {
+    &.has-sidebar {
+        width: 70%;
+        float: left;
+    }
+
+    &.has-sidebar-left.has-sidebar-right {
+        width: 50%;
+    }
+}
+
+.region-sidebar-right,
+.region-sidebar-left {
+    width: 30%;
+    float: left;
+}
+
+.region-sidebar-left.has-sidebar-right,
+.region-sidebar-right.has-sidebar-left {
+    width: 25%;
+}

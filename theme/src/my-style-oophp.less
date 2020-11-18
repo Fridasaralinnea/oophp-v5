@@ -1,0 +1,126 @@
+/*!
+ * My stylesheet.
+ *
+ * This stylesheet is for the ramverk1 course.
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
+
+/**
+ * Import mixins.
+ */
+@import "mixin/clearfix.less";
+
+.clearfix() {
+    #design-mixin.clearfix()
+}
+
+
+
+/**
+* Normalize and reset the style.
+*/
+@import "normalize.css/normalize.less";
+
+
+
+/**
+* Font Awesome.
+*/
+@import "@fortawesome/fontawesome-free/less/fontawesome.less";
+@import "@fortawesome/fontawesome-free/less/solid.less";
+@import "@fortawesome/fontawesome-free/less/brands.less";
+
+
+
+/**
+ * Internal self contained modules, save in directory module/.
+ */
+//@import "module/kmom01.less";
+@import "module/stylechooser.less";  // Just an example module
+
+
+
+/**
+ * Import the typographic grid.
+ */
+@import "@desinax/typographic-grid/less/typography-font-families.less";
+@import "@desinax/typographic-grid/less/typography-defaults.less";
+
+// Show the grid
+.hgrid .inner-wrap {
+    @gridImage: "../img/magic-number-@{magicNumber}.png";
+    #desinax-hgrid.showGrid(@gridImage);
+}
+
+/**
+ * Base style to affect HTML elements on a general scale.
+ */
+@import "base/base2.less";
+
+
+/**
+ * Import the vertical grid.
+ */
+@import "@desinax/vertical-grid/less/grid.less";
+
+// // Default grid, change to fit your requirements.
+// @columnWidth:   30;
+// @gutterWidth:   10;
+// @columns:       24;
+// @gridType:      "float"; // "flex"
+
+// .row {
+//     #desinax-vgrid.row();
+//
+//     background-color: #0f0;
+//     margin-bottom: 12px;
+// }
+
+
+
+/**
+ * Layout style for general structure of header, navbar, main, footer
+ * and other regions of the page including route specific styles.
+ */
+// @import "layout/layout.less";
+// @import "layout/layout_kmom02.less";
+@import "layout/layout_vgrid2.less";
+// @import "layout/responsive.less";
+@import "layout/responsive_kmom03.less";
+@import "layout/regions.less";     // To add style for ?regions
+
+
+/**
+ * A responsive menu.
+ */
+@import "@desinax/responsive-menu/less/responsive-menu.less";
+@import "@desinax/responsive-menu/less/media-queries.less";
+
+
+
+/**
+ * My own settings, not currently in their own module.
+ */
+
+//base_kmom03 variables
+@bgColorHtml: #eee;
+@bgColorBody: #fff;
+@textColorBody: #333;
+
+// Magic number and base fontsize
+@magicNumber:  24px;  // 22px
+@fontSizeBody: 18px;
+
+// Default font-families
+@fontFamilyHeadings: 'Nunito Sans', sans-serif;
+@fontFamilyBody:     @fontFamilyCalibri;
+@fontFamilyCode:     "monospace";
+
+//layout_vgrid variables
+@bgColorHeaderFooter: #555;
+@textColorHeaderFooter: #fff;
+@borderColorInfoByline: #66bca4;
+@bgColorInfo: #dcefea;
+@textColorInfo: #4eb195;
+@bgColorBylilne: #fff;

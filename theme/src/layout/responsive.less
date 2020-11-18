@@ -1,0 +1,84 @@
+/**
+ * Layout for responsive style through media queries.
+ */
+
+@media screen and (max-width: 1300px) {
+    // header responsive style
+    .region-header-col-1 {
+        width: 15%;
+    }
+
+    .region-header-col-2 {
+        width: 70%;
+    }
+
+    .region-header-col-3 {
+        width: 15%;
+    }
+
+    // footer responsive style
+    .inner-wrap-footer {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 1140px) {
+    // header responsive style
+    .region-header-col-1 {
+        font-size: 20px;
+    }
+
+    .region-header-col-2 {
+        width: 75%;
+        font-size: 20px;
+    }
+
+    .region-header-col-3 {
+        width: 10%;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    // header responsive style
+    .region-header-col-1 {
+        width: 50%;
+    }
+
+    .region-header-col-2 {
+        display: none;
+    }
+
+    .region-header-col-3 {
+        width: 50%;
+    }
+
+    // footer responsive style
+    .footer-column {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    //style responsive sidebars
+
+    .region-main {
+        &.has-sidebar {
+            width: 100%;
+        }
+
+        &.has-sidebar-left.has-sidebar-right {
+            width: 100%;
+        }
+    }
+
+    .region-sidebar-right,
+    .region-sidebar-left {
+        width: 100%;
+    }
+
+    .region-sidebar-left.has-sidebar-right,
+    .region-sidebar-right.has-sidebar-left {
+        width: 100%;
+    }
+}

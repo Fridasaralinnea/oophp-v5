@@ -1,0 +1,30 @@
+/**
+ * Base style to affect HTML elements on a general scale. Kmom03
+ */
+ @bgColorHtml: #eee;
+ @bgColorBody: #fff;
+ @textColorBody: #333;
+
+html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: @bgColorHtml;
+}
+
+body {
+    color: @textColorBody;
+    background-color: @bgColorBody;
+    #desinax-hgrid.font(@fontSizeBody); // Activate the grid base font
+}
+
+img {
+    max-width: 100%;
+}
+
+.wrap-all {
+    background-color: @bgColorBody;
+}
+
+
+// Activate grid and affect all typographic elements
+#desinax-hgrid.activateDefaultTypography();
