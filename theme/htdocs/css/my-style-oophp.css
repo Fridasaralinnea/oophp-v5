@@ -8,7 +8,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Nunito Sans Regular'), local('NunitoSans-Regular'), url(https://fonts.gstatic.com/s/nunitosans/v6/pe0qMImSLYBIv1o4X1M8cce9I94.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/nunitosans/v6/pe0qMImSLYBIv1o4X1M8cce9I94.ttf) format('truetype');
 }
 /**
  * Import mixins.
@@ -5343,6 +5343,12 @@ td {
 img.thumb {
   max-width: 100px;
   max-height: 100px;
+}
+a.icons {
+  color: inherit;
+}
+a:hover.icons {
+  opacity: 0.7;
 }
 /**
  * Layout for responsive style through media queries.

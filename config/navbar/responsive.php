@@ -89,5 +89,15 @@ return [
             "url" => "movie",
             "title" => "Movie database with CRUD",
         ],
+        [
+            "text" => "TextFilter",
+            "url" => "text-filter",
+            "title" => "Parse text thru text-filter",
+        ],
+        [
+            "text" => "Content",
+            "url" => "content",
+            "title" => "Content",
+        ],
     ],
 ];

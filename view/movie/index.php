@@ -13,13 +13,13 @@ if (!$resultset) {
 ?><h1>Movie</h1>
 
 <navbar class="navbar">
-    <a href="movie/select">SELECT *</a> |
-    <a href="movie">Show all movies</a> |
-    <a href="movie/reset">Reset database</a> |
-    <a href="movie/search-title">Search title</a> |
-    <a href="movie/search-year">Search year</a> |
-    <a href="movie/crud">Edit or delete</a> |
-    <a href="movie/add">add Movie</a>
+    <a href="<?= url("movie/select") ?>">SELECT *</a> |
+    <a href="<?= url("movie") ?>">Show all movies</a> |
+    <a href="<?= url("movie/reset") ?>">Reset database</a> |
+    <a href="<?= url("movie/search-title") ?>">Search title</a> |
+    <a href="<?= url("movie/search-year") ?>">Search year</a> |
+    <a href="<?= url("movie/crud") ?>">Edit or delete</a> |
+    <a href="<?= url("movie/add") ?>">add Movie</a>
 </navbar>
 
 <table>
